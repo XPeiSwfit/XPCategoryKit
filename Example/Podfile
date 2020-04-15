@@ -1,0 +1,6 @@
+use_frameworks!
+target 'XPCategoryKit_Tests' do
+  pod 'XPCategoryKit', :path => '../'
+  
+  
+end
