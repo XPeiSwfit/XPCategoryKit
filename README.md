@@ -17,6 +17,11 @@ XPCategoryKit is available through [CocoaPods](https://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
+在上面添加下载索引源 
+source 'https://github.com/XPeiSwfit/XPSpecs.git'
+```
+
+```ruby
 pod 'XPCategoryKit'
 ```
 
