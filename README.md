@@ -22,7 +22,7 @@ pod 'XPCategoryKit'
 
 ## Author
 
-18682249915@163.com, 13762399515@163.com
+13762399515@163.com
 
 ## License
 

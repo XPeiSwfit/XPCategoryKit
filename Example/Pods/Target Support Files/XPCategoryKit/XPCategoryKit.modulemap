@@ -1,0 +1,6 @@
+framework module XPCategoryKit {
+  umbrella header "XPCategoryKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
