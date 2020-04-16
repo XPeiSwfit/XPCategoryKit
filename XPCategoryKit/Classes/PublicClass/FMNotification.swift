@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+/*使用。扩展一个Notification.Name*/
 internal typealias NotificationCallBackBlock = (EventInfo) -> Void
 
 class FMNotification {
@@ -34,7 +34,7 @@ class FMNotification {
         NotificationCenter.default.post(name: eventName, object: self, userInfo: userInfo)
     }
     
-    /// 取消n订阅
+    /// 取消订阅
     func unSubscribe(_ eventName:Notification.Name){
         self.observers.removeValue(forKey: eventName)
     }

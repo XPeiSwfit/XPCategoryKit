@@ -8,6 +8,7 @@
 
 import Foundation
 
+///一个计时器,基于ios 10.0系统之上
 
 @objc
 protocol TimerListener: class {
