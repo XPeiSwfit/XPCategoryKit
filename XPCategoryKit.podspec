@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XPCategoryKit'
-  s.version          = '0.1'
+  s.version          = '0.2'
   s.summary          = 'A short description of XPCategoryKit.'
 
 # This description is used to generate tags and improve search results.
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
 TODO:这个描述用于生成标签和改进搜索结果。
-     思考:它是做什么的?你为什么要写它?重点是什么?
+     思考:它是做什么的?你为什么要写它?重点是什么? ---
                        DESC
   ###组件首页地址，放个组件库路径即可
   s.homepage         = 'https://github.com/XPeiSwfit/XPCategoryKit'
