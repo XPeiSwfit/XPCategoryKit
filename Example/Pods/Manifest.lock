@@ -1,5 +1,7 @@
 PODS:
-  - XPCategoryKit (0.1)
+  - XPCategoryKit (0.2):
+    - XPCategoryKit/PublicClass (= 0.2)
+  - XPCategoryKit/PublicClass (0.2)
 
 DEPENDENCIES:
   - XPCategoryKit (from `../`)
@@ -9,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  XPCategoryKit: 0e29ede207d946232acc8db3ee77e809e349808c
+  XPCategoryKit: a1fd6115f1b0985784dd4573743cc396de6bbf4a
 
-PODFILE CHECKSUM: 3e726ff98aa6d431e338f0ac24dbd2f8dbfb62c4
+PODFILE CHECKSUM: a5ceeec6b3b69507dcb4d37fc877921390834824
 
 COCOAPODS: 1.9.1

@@ -1,0 +1,6 @@
+framework module Pods_XPCategoryKit_Tests {
+  umbrella header "Pods-XPCategoryKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,22 +1,30 @@
 {
   "name": "XPCategoryKit",
-  "version": "0.1",
-  "summary": "A short description of XPCategoryKit.",
-  "description": "TODO:这里是个啥",
+  "version": "0.2",
+  "summary": "这是一个摘要",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": "4.0",
+  "description": "长描述\nTODO:这个描述用于生成标签和改进搜索结果。\n     思考:它是做什么的?你为什么要写它?重点是什么? ---",
   "homepage": "https://github.com/XPeiSwfit/XPCategoryKit",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "18682249915@163.com": "13762399515@163.com"
+    "xp": "13762399515@163.com"
   },
   "source": {
-    "git": "https://github.com/XPeiSwfit/XPCategoryKit",
-    "tag": "0.1"
+    "git": "https://github.com/XPeiSwfit/XPCategoryKit.git",
+    "tag": "0.2"
   },
-  "platforms": {
-    "ios": "10.0"
-  },
-  "source_files": "XPCategoryKit/Classes/**/*"
+  "source_files": "XPCategoryKit/Classes/**/*",
+  "subspecs": [
+    {
+      "name": "PublicClass",
+      "source_files": "XPCategoryKit/Classes/PublicClass/*.{swift}"
+    }
+  ],
+  "swift_version": "4.0"
 }
