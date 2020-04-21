@@ -1,5 +1,5 @@
 //
-//  FMNotification.swift
+//  XPNotification.swift
 //  Cow
 //
 //  Created by xp on 2019/6/20.
@@ -8,10 +8,10 @@
 
 import UIKit
 /*使用。扩展一个Notification.Name*/
-internal typealias NotificationCallBackBlock = (EventInfo) -> Void
+public typealias NotificationCallBackBlock = (EventInfo) -> Void
 
-class FMNotification {
-
+public class XPNotification {
+    
     var observers = [Notification.Name : Observer]()
     
     weak var own :AnyObject?  //拥有者
@@ -21,7 +21,7 @@ class FMNotification {
     }
     
     ///订阅事件
-    func subscribe(eventName:Notification.Name,callBack:@escaping NotificationCallBackBlock){
+    public func subscribe(eventName:Notification.Name,callBack: @escaping NotificationCallBackBlock){
         if self.observers[eventName] != nil{
             return print("重复订阅 \(eventName)")
         }
@@ -30,12 +30,12 @@ class FMNotification {
     }
     
     /// 发布事件
-    func sendNotifacation(_ eventName:Notification.Name, userInfo:[AnyHashable:Any]?) -> Void{
+    public  func sendNotifacation(_ eventName:Notification.Name, userInfo:[AnyHashable:Any]?) -> Void{
         NotificationCenter.default.post(name: eventName, object: self, userInfo: userInfo)
     }
     
     /// 取消订阅
-    func unSubscribe(_ eventName:Notification.Name){
+   public func unSubscribe(_ eventName:Notification.Name){
         self.observers.removeValue(forKey: eventName)
     }
     
@@ -57,7 +57,7 @@ class Observer {
         self.block = block
     }
     
-    class func subscriber(_ eventName:Notification.Name, block:@escaping NotificationCallBackBlock) -> Observer{
+    public class func subscriber(_ eventName:Notification.Name, block:@escaping NotificationCallBackBlock) -> Observer{
         
         let obs = Observer(eventName: eventName, block: block)
         
@@ -67,7 +67,7 @@ class Observer {
     }
     
     //最终订阅方法。和订阅回调执行
-   @objc func notifacationCallBack(_ nt:Notification){
+    @objc func notifacationCallBack(_ nt:Notification){
         let event = EventInfo(eventName: nt.name, observer: nt.object, userInfo: nt.userInfo)
         block(event)
     }
@@ -79,15 +79,15 @@ class Observer {
 
 
 /// notifacation事件信息
-class EventInfo{  
+public class EventInfo{
     
-    let eventName:Notification.Name  
-    let observer : Any?
-    let userInfo:[AnyHashable : Any]?
+    public let eventName:Notification.Name
+    public let observer : Any?
+    public  let userInfo:[AnyHashable : Any]?
     
     init(eventName:Notification.Name,
          observer:Any?,
-        userInfo:[AnyHashable : Any]?) {
+         userInfo:[AnyHashable : Any]?) {
         
         self.userInfo = userInfo
         self.eventName = eventName
@@ -96,26 +96,26 @@ class EventInfo{
     }
 }
 
-private var FMNotificationKey = "FMNotificationKey"
+private var XPNotificationKey = "XPNotificationKey"
 
 extension NSObject{
-    var notifacation:FMNotification{
-    
+    public var notifacation:XPNotification{
+        
         get {
             objc_sync_enter(self)
             defer {
-               objc_sync_exit(self) 
+                objc_sync_exit(self)
             }
             
-            var obj = objc_getAssociatedObject(self, &FMNotificationKey)
+            var obj = objc_getAssociatedObject(self, &XPNotificationKey)
             if(obj != nil){
-                return obj as! FMNotification
+                return obj as! XPNotification
             }
             
-            obj = FMNotification.init(self)
-            objc_setAssociatedObject(self, &FMNotificationKey, obj, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            obj = XPNotification.init(self)
+            objc_setAssociatedObject(self, &XPNotificationKey, obj, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
-            return obj as! FMNotification
+            return obj as! XPNotification
         }
         
     }

@@ -25,6 +25,13 @@ source 'https://github.com/XPeiSwfit/XPSpecs.git'
 pod 'XPCategoryKit'
 ```
 
+## 友情提示:
+ 定义常用的类库信息, 使用@_exported关键字，就可以全局引入对应的包
+   ``` 
+   @_exported import XPCategoryKit 
+   ```
+在其他的文件中就不用再import对应的类库就可以直接使用了
+
 ## Author
 
 13762399515@163.com

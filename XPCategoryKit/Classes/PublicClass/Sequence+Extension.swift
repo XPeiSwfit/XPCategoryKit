@@ -18,7 +18,7 @@ extension Sequence{
     /// print(result)  -> ["a": ["a1", "a2", "a5", "a9", "a10"], "e": ["e6", "e7", "e8"], "c": ["c3", "c4", "c11"], "d": ["d12"]]
     ///
     ///成员分组
-    func groupBy<G: Hashable>(closure: (Iterator.Element)->G) -> [G: [Iterator.Element]] {
+  public func groupBy<G: Hashable>(closure: (Iterator.Element)->G) -> [G: [Iterator.Element]] {
         var results = [G: Array<Iterator.Element>]()
         
         forEach {

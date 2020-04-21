@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   ###指定最低的ios版本
    s.ios.deployment_target = '10.0'
    #制定的最低swift版本
-   s.swift_version = '4.0'
+   s.swift_version = '5.0'
 
 
   s.description      = <<-DESC

@@ -6,27 +6,10 @@
 //
 
 import Foundation
-protocol ClassName {
+
+public extension NSObject{
     
-}
-
-extension ClassName{
-    ///截取类名
-    static var typeName:String{
-        return "\(type(of: self))".replacingOccurrences(of: ".Type", with: "")
-    }
     
-    var typeName:String{
-        return "\(type(of: self))".replacingOccurrences(of: ".Type", with: "")
-    }
-}
-
-
-extension NSObject:ClassName{
-    
-}
-
-extension NSObject{
     ///获取当前活动的navigationController
     func getNavigationController()-> UINavigationController {
         var parent: UIViewController?

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-extension String{
+public extension String{
     
     
     /// 处理前缀不是”/“的，前面进行添加“/”
@@ -15,14 +15,6 @@ extension String{
             return "/" + self
         }
         return self
-    }
-    
-    /// String  ->  Double?
-    func double(locale: Locale = .current) -> Double? {
-        let formatter = NumberFormatter()
-        formatter.locale = locale
-        formatter.allowsFloats = true
-        return formatter.number(from: self)?.doubleValue
     }
     
     
@@ -152,7 +144,7 @@ extension String{
     }
 }
 
-extension Double{
+public extension Double{
     ///double转string 设置最低小数位,不足小数位用0补齐
     func toString(min:Int = 2) -> String{
         
@@ -187,7 +179,7 @@ extension Double{
 }
 
 
-extension String {
+public extension String {
     /// 截取到任意位置
     func subString(to: Int) -> String {
         guard self.count > to else{ return self}
@@ -241,7 +233,7 @@ extension String {
 }
 
 
-extension String{
+public extension String{
 
     /// "一是中文".isAllChineseIn  ->  true
     /// "1不是中文".isAllChineseIn ->  false

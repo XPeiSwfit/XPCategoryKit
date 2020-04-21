@@ -11,12 +11,12 @@ import Foundation
 ///一个计时器,基于ios 10.0系统之上
 
 @objc
-protocol TimerListener: class {
+public protocol TimerListener: class {
     func didOnTimer(announcer: TimeCounter, timeInterval: TimeInterval)
 }
 
-class TimeCounter:NSObject{
-    static let sharedInstance = TimeCounter()
+public class TimeCounter:NSObject{
+   public static let sharedInstance = TimeCounter()
     
     ///红色⚠️...    注意管理好使用的协议类， 注意下面这个数组, 在不使用的时候，切记删除，这个计时器是单例, 如果没有管理好，再次进入的时候，可能会出现计时错误，或停止的bug
     private let map:NSHashTable<TimerListener> = NSHashTable<TimerListener>.weakObjects()
@@ -51,7 +51,7 @@ class TimeCounter:NSObject{
         }
     }
     
-    func addListener(listener: TimerListener) {
+   public func addListener(listener: TimerListener) {
         
         if !map.contains(listener){ //如果存在则不再添加
             map.add(listener)
@@ -84,7 +84,7 @@ class TimeCounter:NSObject{
     /// 删除所有存储的协议类
     ///
     /// - Parameter listener: 为空则清除所有，
-    func removeListener(listener: TimerListener?){
+   public func removeListener(listener: TimerListener?){
         if listener.isSome{
             map.remove(listener)
         }else{
@@ -95,12 +95,12 @@ class TimeCounter:NSObject{
     }
     
     /// 当没有定时器需求的时候暂停定时器
-    func timerPause() {
+   public func timerPause() {
         timer?.fireDate = Date.distantFuture
     }
     
     /// 启动定时器
-    func timerStart() {
+   public func timerStart() {
         resetServerTime()
         timer?.fireDate = Date.distantPast
     }
@@ -109,7 +109,7 @@ class TimeCounter:NSObject{
     ///
     /// - Parameter time: 比如限时活动开始时间、结束时间, （结束时间也需要处理服务器时间差值）
     /// - Returns: 时间差
-    func lefTimeInterval(time: TimeInterval) -> TimeInterval {
+   public func lefTimeInterval(time: TimeInterval) -> TimeInterval {
         let leftTime = time + serverTimeInterval - self.nowTimeInterval
         return leftTime
     }
