@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XPCategoryKit'
-  s.version          = '0.3'
+  s.version          = '0.4'
   s.summary          = '这是一个摘要'
   ###指定最低的ios版本
    s.ios.deployment_target = '10.0'
